@@ -278,7 +278,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         System.add(jMLogin);
 
-        jMLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logout.png"))); // NOI18N
+        jMLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
         jMLogout.setText("Đăng xuất");
         jMLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

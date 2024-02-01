@@ -53,7 +53,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMLogout">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon/logout.png"/>
+                  <Image iconType="3" name="/icons/logout.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
               </Properties>
