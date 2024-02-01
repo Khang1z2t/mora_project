@@ -54,7 +54,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="66" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd; TH&#xd4;NG TIN - Th&#x1ec3; lo&#x1ea1;i"/>
+        <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd; TH&#xd4;NG TIN - T&#xe1;c gi&#x1ea3;"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JTabbedPane" name="tab">

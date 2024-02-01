@@ -366,7 +366,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMThongKe.setText("Thống kê");
 
-        jMDoanhThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/revenue.png"))); // NOI18N
+        jMDoanhThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/revenue.png"))); // NOI18N
         jMDoanhThu.setText("Doanh Thu");
         jMDoanhThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -379,7 +379,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         Services.setText("Hỗ trợ");
 
-        jMOpenDis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/discord.png"))); // NOI18N
+        jMOpenDis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/discord.png"))); // NOI18N
         jMOpenDis.setText("Discord");
         jMOpenDis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,7 +388,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Services.add(jMOpenDis);
 
-        jMOpenFB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/facebook.png"))); // NOI18N
+        jMOpenFB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/facebook.png"))); // NOI18N
         jMOpenFB.setText("Facebook");
         jMOpenFB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

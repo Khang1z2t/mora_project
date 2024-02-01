@@ -201,7 +201,7 @@ public class tacgiaJDialog extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("JetBrains Mono ExtraBold", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel2.setText("QUẢN LÝ THÔNG TIN - Thể loại");
+        jLabel2.setText("QUẢN LÝ THÔNG TIN - Tác giả");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("MÃ THỂ LOẠI");

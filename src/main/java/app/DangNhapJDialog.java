@@ -278,7 +278,6 @@ public class DangNhapJDialog extends javax.swing.JDialog {
 
     private void lblFPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFPMouseClicked
         // TODO add your handling code here:
-        this.dispose();
         QuenMatKhauJDialog qmk = new QuenMatKhauJDialog((java.awt.Frame)getParent(),true);
         dispose();
         qmk.setVisible(true);
