@@ -274,28 +274,28 @@ public class tacgiaJDialog extends javax.swing.JDialog {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        btnFirst.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\first.png")); // NOI18N
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/first.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
             }
         });
 
-        btnPre.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\pre.png")); // NOI18N
+        btnPre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pre.png"))); // NOI18N
         btnPre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPreActionPerformed(evt);
             }
         });
 
-        btnNext.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\next.png")); // NOI18N
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/next.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
             }
         });
 
-        btnLast.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\last.png")); // NOI18N
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/last.png"))); // NOI18N
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);

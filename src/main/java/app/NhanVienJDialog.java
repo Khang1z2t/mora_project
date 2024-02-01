@@ -424,28 +424,28 @@ public class NhanVienJDialog extends javax.swing.JDialog {
             }
         });
 
-        btnLast.setIcon(new javax.swing.ImageIcon("E:\\DuAnMau - SD18401\\proSys\\src\\main\\resources\\icon\\last.png")); // NOI18N
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/last.png"))); // NOI18N
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
             }
         });
 
-        btnNext.setIcon(new javax.swing.ImageIcon("E:\\DuAnMau - SD18401\\proSys\\src\\main\\resources\\icon\\next.png")); // NOI18N
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/next.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
             }
         });
 
-        btnPrevious.setIcon(new javax.swing.ImageIcon("E:\\DuAnMau - SD18401\\proSys\\src\\main\\resources\\icon\\pre.png")); // NOI18N
+        btnPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pre.png"))); // NOI18N
         btnPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPreviousActionPerformed(evt);
             }
         });
 
-        btnFirst.setIcon(new javax.swing.ImageIcon("E:\\DuAnMau - SD18401\\proSys\\src\\main\\resources\\icon\\first.png")); // NOI18N
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/first.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);

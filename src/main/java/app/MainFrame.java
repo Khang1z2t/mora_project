@@ -113,7 +113,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(32, 136, 203));
-        btnLogout.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\logout.png")); // NOI18N
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logout.png"))); // NOI18N
         btnLogout.setText("Đăng xuất");
         btnLogout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnLogout.setMaximumSize(new java.awt.Dimension(87, 52));
@@ -184,7 +184,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnKho.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnKho.setForeground(new java.awt.Color(32, 136, 203));
-        btnKho.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\storage.png")); // NOI18N
+        btnKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/storage.png"))); // NOI18N
         btnKho.setText("QUẢN LÝ KHO");
         btnKho.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnKho.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -196,7 +196,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnInfo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnInfo.setForeground(new java.awt.Color(32, 136, 203));
-        btnInfo.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\info.png")); // NOI18N
+        btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/information.png"))); // NOI18N
         btnInfo.setText("Thông tin");
         btnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +216,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(btnKho)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInfo)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,8 +235,6 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 80));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\Poly.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -280,7 +278,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         System.add(jMLogin);
 
-        jMLogout.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\logout.png")); // NOI18N
+        jMLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logout.png"))); // NOI18N
         jMLogout.setText("Đăng xuất");
         jMLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,7 +289,6 @@ public class MainFrame extends javax.swing.JFrame {
         System.add(jSeparator1);
 
         jMExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        jMExit.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\shutdown.png")); // NOI18N
         jMExit.setText("Thoát");
         jMExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -319,7 +316,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Manage.add(jMqlsach);
 
-        Tacgia.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\writer.png")); // NOI18N
+        Tacgia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/writer.png"))); // NOI18N
         Tacgia.setText("Tác giả");
         Tacgia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,7 +325,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Manage.add(Tacgia);
 
-        theloai.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\type.png")); // NOI18N
+        theloai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/type.png"))); // NOI18N
         theloai.setText("Thể loại");
         theloai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,13 +338,13 @@ public class MainFrame extends javax.swing.JFrame {
         nhaxb.setEnabled(false);
         Manage.add(nhaxb);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\bill.png")); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bill.png"))); // NOI18N
         jMenuItem4.setText("Hóa đơn");
         Manage.add(jMenuItem4);
         Manage.add(jSeparator2);
 
         jMqlnv.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMqlnv.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\staff.png")); // NOI18N
+        jMqlnv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
         jMqlnv.setText("Nhân viên");
         jMqlnv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -356,7 +353,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Manage.add(jMqlnv);
 
-        jMNguoiDung.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\information.png")); // NOI18N
+        jMNguoiDung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/staff.png"))); // NOI18N
         jMNguoiDung.setText("Thông tin NV");
         jMNguoiDung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -369,7 +366,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMThongKe.setText("Thống kê");
 
-        jMDoanhThu.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\revenue.png")); // NOI18N
+        jMDoanhThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/revenue.png"))); // NOI18N
         jMDoanhThu.setText("Doanh Thu");
         jMDoanhThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,7 +379,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         Services.setText("Hỗ trợ");
 
-        jMOpenDis.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\discord.png")); // NOI18N
+        jMOpenDis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/discord.png"))); // NOI18N
         jMOpenDis.setText("Discord");
         jMOpenDis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -391,7 +388,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Services.add(jMOpenDis);
 
-        jMOpenFB.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\facebook.png")); // NOI18N
+        jMOpenFB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/facebook.png"))); // NOI18N
         jMOpenFB.setText("Facebook");
         jMOpenFB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

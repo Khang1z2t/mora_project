@@ -306,7 +306,6 @@ public class QuanLySachJDialog extends javax.swing.JDialog {
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnThem.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\plus.png")); // NOI18N
         btnThem.setText("Thêm");
         btnThem.setPreferredSize(new java.awt.Dimension(75, 26));
         btnThem.addActionListener(new java.awt.event.ActionListener() {
@@ -316,7 +315,6 @@ public class QuanLySachJDialog extends javax.swing.JDialog {
         });
 
         btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnXoa.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\delete.png")); // NOI18N
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,7 +323,6 @@ public class QuanLySachJDialog extends javax.swing.JDialog {
         });
 
         btnMoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnMoi.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\reset.png")); // NOI18N
         btnMoi.setText("Làm mới");
         btnMoi.setPreferredSize(new java.awt.Dimension(75, 26));
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
@@ -335,7 +332,6 @@ public class QuanLySachJDialog extends javax.swing.JDialog {
         });
 
         btnSua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSua.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\QLNS\\src\\main\\java\\icon\\save.png")); // NOI18N
         btnSua.setText("Sửa");
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,28 +339,28 @@ public class QuanLySachJDialog extends javax.swing.JDialog {
             }
         });
 
-        btnLast.setText("|<");
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/first.png"))); // NOI18N
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
             }
         });
 
-        btnPre.setText("<<");
+        btnPre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pre.png"))); // NOI18N
         btnPre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPreActionPerformed(evt);
             }
         });
 
-        btnNext.setText(">>");
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/next.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
             }
         });
 
-        btnFirst.setText(">|");
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/last.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);

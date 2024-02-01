@@ -53,7 +53,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMLogout">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\logout.png"/>
+                  <Image iconType="3" name="/icon/logout.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
               </Properties>
@@ -67,9 +67,6 @@
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Alt+F4"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\shutdown.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tho&#xe1;t"/>
               </Properties>
@@ -102,7 +99,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="Tacgia">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\writer.png"/>
+                  <Image iconType="3" name="/icon/writer.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="T&#xe1;c gi&#x1ea3;"/>
               </Properties>
@@ -113,7 +110,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="theloai">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\type.png"/>
+                  <Image iconType="3" name="/icon/type.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Th&#x1ec3; lo&#x1ea1;i"/>
               </Properties>
@@ -130,7 +127,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\bill.png"/>
+                  <Image iconType="3" name="/icon/bill.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="H&#xf3;a &#x111;&#x1a1;n"/>
               </Properties>
@@ -143,7 +140,7 @@
                   <KeyStroke key="Ctrl+N"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\staff.png"/>
+                  <Image iconType="3" name="/icon/user.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nh&#xe2;n vi&#xea;n"/>
               </Properties>
@@ -154,7 +151,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMNguoiDung">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\information.png"/>
+                  <Image iconType="3" name="/icon/staff.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin NV"/>
               </Properties>
@@ -172,7 +169,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMDoanhThu">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\revenue.png"/>
+                  <Image iconType="3" name="/icon/revenue.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Doanh Thu"/>
               </Properties>
@@ -190,7 +187,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMOpenDis">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\discord.png"/>
+                  <Image iconType="3" name="/icon/discord.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Discord"/>
               </Properties>
@@ -201,7 +198,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMOpenFB">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\facebook.png"/>
+                  <Image iconType="3" name="/icon/facebook.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Facebook"/>
               </Properties>
@@ -298,7 +295,7 @@
                           <Component id="btnKho" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnInfo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="215" max="32767" attributes="0"/>
+                          <EmptySpace pref="231" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -362,7 +359,7 @@
                           <Color blue="cb" green="88" red="20" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\logout.png"/>
+                          <Image iconType="3" name="/icon/logout.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -449,7 +446,7 @@
                       <Color blue="cb" green="88" red="20" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\storage.png"/>
+                      <Image iconType="3" name="/icon/storage.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd; KHO"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -468,7 +465,7 @@
                       <Color blue="cb" green="88" red="20" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\info.png"/>
+                      <Image iconType="3" name="/icon/information.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin"/>
                   </Properties>
@@ -514,11 +511,6 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel3">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\Poly.png"/>
-                </Property>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

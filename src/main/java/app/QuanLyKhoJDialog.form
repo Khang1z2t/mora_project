@@ -255,7 +255,7 @@
                       <Color blue="ff" green="99" red="99" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="E:\NMKTPM\Project\QLNS\src\main\java\icon\updated.png"/>
+                      <Image iconType="3" name="/icons/updated.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t"/>
                   </Properties>
