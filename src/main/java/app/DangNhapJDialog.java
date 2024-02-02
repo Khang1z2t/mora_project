@@ -314,7 +314,7 @@ public class DangNhapJDialog extends javax.swing.JDialog {
                 }
                 utils.Auth.user = nv;
                 new MainFrame(1).setVisible(true);
-                this.dispose();
+                this.setVisible(false);
             }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
