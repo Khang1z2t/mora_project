@@ -7,11 +7,16 @@ package app;
 
 import entities.Sach;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,19 +32,31 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame(int index) {
         initComponents();
         setLocationRelativeTo(null);
-        
         init(index);
+        new Timer(1000, new ActionListener() {
+            SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss a");
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lblTime.setText(format.format(new Date()));
+            }
+        }).start();
         //214 ; 350
     }
     void init(int index) {
+        if(index==0){
+            new DangNhapJDialog(this, true).setVisible(true);
+        }
         try {
             if (utils.Auth.isLogin()) {
                 jMLogin.setVisible(false);
+                lblMaNV.setText(utils.Auth.user.getMaNhanVien());
+                lblTenNV.setText(utils.Auth.user.getHoVaTen());
             }
 
             if (!utils.Auth.isManager()) {
                 jMDoanhThu.setEnabled(false);
-                jMNguoiDung.setEnabled(false);
+                jMqlnv.setEnabled(false);
                 theloai.setEnabled(false);
                 Tacgia.setEnabled(false);
                 nhaxb.setEnabled(false);
@@ -69,6 +86,11 @@ public class MainFrame extends javax.swing.JFrame {
         btnInfo = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        lblTime = new javax.swing.JLabel();
+        lblMaNV = new javax.swing.JLabel();
+        lblTenNV = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         System = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -236,6 +258,45 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
+        lblTime.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTime.setText("12:00:00 AM");
+
+        lblMaNV.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMaNV.setText("MANV");
+
+        lblTenNV.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTenNV.setText("TenNV");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("-");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblMaNV)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTenNV)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTime)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTime)
+                    .addComponent(lblMaNV)
+                    .addComponent(lblTenNV)
+                    .addComponent(jLabel1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -243,14 +304,16 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(189, 189, 189)
                 .addComponent(jLabel3)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(591, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(119, 119, 119)
                 .addComponent(jLabel3)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 780, 430));
@@ -289,6 +352,7 @@ public class MainFrame extends javax.swing.JFrame {
         System.add(jSeparator1);
 
         jMExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shutdown.png"))); // NOI18N
         jMExit.setText("Thoát");
         jMExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -334,8 +398,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Manage.add(theloai);
 
+        nhaxb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/information.png"))); // NOI18N
         nhaxb.setText("Nhà xuất bản");
         nhaxb.setEnabled(false);
+        nhaxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nhaxbActionPerformed(evt);
+            }
+        });
         Manage.add(nhaxb);
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bill.png"))); // NOI18N
@@ -464,7 +534,9 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMOpenFBActionPerformed
 
     private void jMLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMLogoutActionPerformed
-
+        utils.DialogHelper.confirm(this, "Đang thực hiện đăng xuất...");  
+        utils.Auth.clear();
+        dispose();
         new DangNhapJDialog(this, true).setVisible(true);
     }//GEN-LAST:event_jMLogoutActionPerformed
 
@@ -474,7 +546,9 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKhoActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        utils.DialogHelper.confirm(this, "Đang thực hiện đăng xuất...");  
         utils.Auth.clear();
+        dispose();
         new DangNhapJDialog(this, true).setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
@@ -509,6 +583,11 @@ public class MainFrame extends javax.swing.JFrame {
         new ThongKeJDialog(this, true).setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_jMDoanhThuActionPerformed
 
+    private void nhaxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nhaxbActionPerformed
+        // TODO add your handling code here:
+        new nhaXBJDialog(this, true).setVisible(true);
+    }//GEN-LAST:event_nhaxbActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -540,7 +619,7 @@ public class MainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame(1).setVisible(true);
+                new MainFrame(0).setVisible(true);
             }
         });
     }
@@ -564,6 +643,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSettings;
     private javax.swing.ButtonGroup grpRole;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuItem jMDoanhThu;
     private javax.swing.JMenuItem jMExit;
@@ -582,10 +662,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel lblMaNV;
+    private javax.swing.JLabel lblTenNV;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JMenuItem nhaxb;
     private javax.swing.JMenuItem theloai;
     // End of variables declaration//GEN-END:variables

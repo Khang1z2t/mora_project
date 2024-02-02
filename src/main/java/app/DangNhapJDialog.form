@@ -67,10 +67,10 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtUser" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtUser" alignment="1" pref="436" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="chkRemember" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="211" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Component id="lblFP" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
