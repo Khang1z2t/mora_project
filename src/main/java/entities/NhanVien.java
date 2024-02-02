@@ -10,6 +10,7 @@ public class NhanVien {
     private String HoVaTen;
     private String Email;
     private boolean VaiTro = false;
+    private boolean SA = false;
 
     public NhanVien() {
     }
@@ -60,5 +61,14 @@ public class NhanVien {
     public void setVaiTro(boolean VaiTro) {
         this.VaiTro = VaiTro;
     }
+
+    public boolean isSA() {
+        return SA;
+    }
+
+    public void setSA(boolean SA) {
+        this.SA = SA;
+    }
+
  
 }

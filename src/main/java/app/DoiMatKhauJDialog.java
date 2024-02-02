@@ -25,7 +25,7 @@ public class DoiMatKhauJDialog extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
 //        initData();
-checkAuth();
+//checkAuth();
     }
 //   void initData(){
 //            user = txtUser.getText();
@@ -35,15 +35,15 @@ checkAuth();
 //        txtUser.setText(utils.Auth.user.getMaNhanVien());
 //        txtUser.setEditable(false);
 //    }
-    void checkAuth(){
-        user = txtUser.getText();
-        NhanVien nv = new NhanVienDAO().selectById(user);
-        utils.Auth.user = nv;
-        if(nv==null){
-            dispose();
-            new QuenMatKhauJDialog((java.awt.Frame)getParent(), true).setVisible(rootPaneCheckingEnabled);
-        }
-    }
+//    void checkAuth(){
+//        user = txtUser.getText();
+//        NhanVien nv = new NhanVienDAO().selectById(user);
+//        utils.Auth.user = nv;
+//        if(nv==null){
+//            dispose();
+//            new QuenMatKhauJDialog((java.awt.Frame)getParent(), true).setVisible(rootPaneCheckingEnabled);
+//        }
+//    }
     private boolean checkForm() {
         if (!txtPass.getPassword().equals(utils.Auth.user.getMatKhau())) {
             DialogHelper.alert(this, "Mật khẩu hiện tại không đúng!");

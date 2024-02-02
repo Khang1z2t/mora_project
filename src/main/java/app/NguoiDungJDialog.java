@@ -125,6 +125,7 @@ public class NguoiDungJDialog extends javax.swing.JDialog {
 
     private void fillToTable(List<NguoiDung> lst) {
         tblModel.setRowCount(0);
+        
         for (NguoiDung nd : lst) {
             tblModel.addRow(new Object[]{
                 nd.getMaNguoiDung(),
@@ -136,10 +137,27 @@ public class NguoiDungJDialog extends javax.swing.JDialog {
             });
         }
     }
+//         private void seacrh () {
+//        tblModel.setRowCount(0);
+//        NguoiDungDAO ndd = new NguoiDungDAO();
+//        String key = txtTim.getText();
+//        List<NguoiDung> lst = (List<NguoiDung>) ndd.SelectByKeyword(key);
+//        for (NguoiDung nd : lst) {
+//            tblModel.addRow(new Object[]{
+//                nd.getMaNguoiDung(),
+//                nd.getTenNguoiDung(),
+//                nd.isGioiTinh()? "Nam" : "Nữ",
+//                utils.XDate.toString(nd.getNgaySinh(), "dd-MM-yyyy"),
+//                nd.getDienThoai(),
+//                nd.getEmail(),
+//            });
+//        }
+//    }
 
     private void DBFillToList() {
         NguoiDungDAO nvd = new NguoiDungDAO();
-        listND = nvd.SelectAll();
+        String key = txtTim.getText();
+        listND = nvd.SelectByKeyword(key);
         fillToTable(listND);
     }
 
@@ -227,8 +245,8 @@ public class NguoiDungJDialog extends javax.swing.JDialog {
         txtMaND.setText("");
         txtTenND.setText("");
         txtEmail.setText(nv.getEmail());
-        txtEmail.setEditable(true);
-        txtEmail.requestFocus();
+        txtMaND.setEditable(true);
+        txtMaND.requestFocus();
         grpGender.clearSelection();
         txtDate.setText("");
         txtSDT.setText("");
@@ -533,6 +551,12 @@ public class NguoiDungJDialog extends javax.swing.JDialog {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TÌM KIẾM", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(32, 136, 203))); // NOI18N
 
+        txtTim.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTimKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -591,10 +615,13 @@ public class NguoiDungJDialog extends javax.swing.JDialog {
 
         jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        lblMaNV.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblMaNV.setText("MaNV");
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setText("-");
 
+        lblTenNV.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTenNV.setText("TenNV");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -602,21 +629,21 @@ public class NguoiDungJDialog extends javax.swing.JDialog {
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(lblMaNV)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTenNV)
-                .addGap(50, 50, 50))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMaNV)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
+                    .addComponent(lblMaNV)
                     .addComponent(lblTenNV))
                 .addGap(15, 15, 15))
         );
@@ -629,8 +656,8 @@ public class NguoiDungJDialog extends javax.swing.JDialog {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
             .addComponent(tabND)
         );
         layout.setVerticalGroup(
@@ -726,6 +753,11 @@ previous();        // TODO add your handling code here:
         } catch (Exception e) {
         }
     }//GEN-LAST:event_tblListMouseClicked
+
+    private void txtTimKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKeyPressed
+        DBFillToList();
+        fillToTable(listND);
+    }//GEN-LAST:event_txtTimKeyPressed
 
     /**
      * @param args the command line arguments

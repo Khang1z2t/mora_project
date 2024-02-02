@@ -12,22 +12,24 @@ import java.util.List;
 
 public class NhanVienDAO {
     public void insert(NhanVien model){
-        String sql="INSERT INTO NHANVIEN VALUES (?, ?, ?, ?, ?)";
+        String sql="INSERT INTO NHANVIEN VALUES (?, ?, ?, ?, ?,?)";
         utils.JDBCHelper.update(sql, 
                 model.getMaNhanVien(), 
                 model.getMatKhau(), 
                 model.getHoVaTen(), 
                 model.getEmail(),
-                model.isVaiTro());
+                model.isVaiTro(),
+                model.isSA());
     }
     
     public void update(NhanVien model){
-        String sql="UPDATE NHANVIEN SET MATKHAU = ?, HOTEN = ?, EMAIL = ? ,VAITRO = ? WHERE MANV = ?";
+        String sql="UPDATE NHANVIEN SET MATKHAU = ?, HOTEN = ?, EMAIL = ? ,VAITRO = ?,isSuperAdmin =? WHERE MANV = ?";
         utils.JDBCHelper.update(sql, 
                 model.getMatKhau(), 
                 model.getHoVaTen(), 
                 model.getEmail(),
                 model.isVaiTro(),
+                model.isSA(),
                 model.getMaNhanVien());
     }
     
@@ -60,6 +62,7 @@ public class NhanVienDAO {
                     entity.setHoVaTen(rs.getString(3));
                     entity.setEmail(rs.getString(4));
                     entity.setVaiTro(rs.getBoolean(5));
+                    entity.setSA(rs.getBoolean(6));
                     list.add(entity);
                 }
             } 

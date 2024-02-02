@@ -103,7 +103,7 @@ public class MainFrame extends javax.swing.JFrame {
         Tacgia = new javax.swing.JMenuItem();
         theloai = new javax.swing.JMenuItem();
         nhaxb = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMill = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMqlnv = new javax.swing.JMenuItem();
         jMNguoiDung = new javax.swing.JMenuItem();
@@ -408,9 +408,15 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Manage.add(nhaxb);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bill.png"))); // NOI18N
-        jMenuItem4.setText("Hóa đơn");
-        Manage.add(jMenuItem4);
+        jMill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bill.png"))); // NOI18N
+        jMill.setText("Hóa đơn");
+        jMill.setEnabled(false);
+        jMill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMillActionPerformed(evt);
+            }
+        });
+        Manage.add(jMill);
         Manage.add(jSeparator2);
 
         jMqlnv.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -588,6 +594,11 @@ public class MainFrame extends javax.swing.JFrame {
         new nhaXBJDialog(this, true).setVisible(true);
     }//GEN-LAST:event_nhaxbActionPerformed
 
+    private void jMillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMillActionPerformed
+        // TODO add your handling code here:
+        new HoaDonJDialog(this, true).setVisible(true);
+    }//GEN-LAST:event_jMillActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -656,7 +667,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMill;
     private javax.swing.JMenuItem jMqlnv;
     private javax.swing.JMenuItem jMqlsach;
     private javax.swing.JPanel jPanel1;
