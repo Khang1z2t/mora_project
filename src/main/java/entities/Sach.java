@@ -5,6 +5,8 @@
  */
 package entities;
 
+import java.util.Date;
+
 /**
  *
  * @author NGUYEN THI NGUYET VY
@@ -21,11 +23,18 @@ public class Sach {
     private String NhaXB;
     private String maTheLoai;
     private String maTacGia;
+    private int soluong;
+    private Date ngayton;
 
     public Sach() {
     }
 
-    public Sach(String tenSach, String maSach, int namXB, int gia, String tentacgia, String theloai, String GhiChu, String Hinh, String NhaXB, String maTheLoai, String maTacGia) {
+    @Override
+    public String toString() {
+        return maSach + "-" + tenSach;
+    }
+
+    public Sach(String tenSach, String maSach, int namXB, int gia, String tentacgia, String theloai, String GhiChu, String Hinh, String NhaXB, String maTheLoai, String maTacGia, int soluong, Date ngayton) {
         this.tenSach = tenSach;
         this.maSach = maSach;
         this.namXB = namXB;
@@ -37,6 +46,8 @@ public class Sach {
         this.NhaXB = NhaXB;
         this.maTheLoai = maTheLoai;
         this.maTacGia = maTacGia;
+        this.soluong = soluong;
+        this.ngayton = ngayton;
     }
 
     public String getTenSach() {
@@ -126,6 +137,22 @@ public class Sach {
     public void setMaTacGia(String maTacGia) {
         this.maTacGia = maTacGia;
     }
-    
+
+    public int getSoluong() {
+        return soluong;
     }
 
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
+    }
+
+    public Date getNgayton() {
+        return ngayton;
+    }
+
+    public void setNgayton(Date ngayton) {
+        this.ngayton = ngayton;
+    }
+
+
+}

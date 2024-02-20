@@ -452,6 +452,11 @@ public class QuanLySachJDialog extends javax.swing.JDialog {
         jLabel9.setText("Nhà xuất bản");
 
         cboTacgia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboTacgia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboTacgiaActionPerformed(evt);
+            }
+        });
 
         cboTheLoai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -692,6 +697,10 @@ addSach();        // TODO add your handling code here:
         } catch (Exception e) {
         }
     }//GEN-LAST:event_tblListMouseClicked
+
+    private void cboTacgiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTacgiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboTacgiaActionPerformed
 
     /**
      * @param args the command line arguments

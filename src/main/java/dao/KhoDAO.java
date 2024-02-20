@@ -8,8 +8,11 @@ package dao;
 import entities.Kho;
 import entities.Sach;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import utils.JDBCHelper;
 
 /**
  *
@@ -17,33 +20,35 @@ import java.util.List;
  */
 public class KhoDAO {
    public void insert(Kho model){
-       String sql="Insert into khosach values(?,?,?,?,?)";
+       String sql="Insert into khosach values(?,?,?,?,?,?)";
        utils.JDBCHelper.update(sql, 
                model.getMakho(),
                model.getMaSach(),
                model.getTenSach(),
                model.getSoluong(),
+               model.getGhiChu(),
                 model.getMaNV(),
                 model.getNgaytao());
    }
    public void update(Kho model){
-        String sql="UPDATE kho set makho=?, masach = ?,tensach= ?,soluong = ?,manv = ?,ngaytao =? WHERE makho = ?";
+        String sql="UPDATE khosach set makho=?, masach = ?,tensach= ?,soluong = ?, ghichu=?,manv = ?,ngaytao =? WHERE makho = ?";
         utils.JDBCHelper.update(sql, 
                model.getMakho(),
                model.getMaSach(),
                model.getTenSach(),
                model.getSoluong(),
+               model.getGhiChu(),
                 model.getMaNV(),
                 model.getNgaytao());
     }
     
     public void delete(String MaNV){
-        String sql="DELETE FROM kho WHERE makho = ?";
+        String sql="DELETE FROM khosach WHERE makho = ?";
         utils.JDBCHelper.update(sql, MaNV);
     }
     
     public Kho selectById(String masach){
-        String sql = "SELECT * FROM Kho WHERE makho = ?";
+        String sql = "SELECT * FROM Khosach WHERE makho = ?";
         List<Kho> list = this.SelectBySQL(sql, masach);
         return list.size() > 0 ? list.get(0) : null;
     }
@@ -60,8 +65,9 @@ public class KhoDAO {
                     st.setMaSach(rs.getString(2));
                     st.setTenSach(rs.getString(3));
                     st.setSoluong(rs.getInt(4));
-                    st.setMaNV(rs.getString(5));
-                    st.setNgaytao(rs.getString(6));
+                    st.setGhiChu(rs.getString(5));
+                    st.setMaNV(rs.getString(6));
+                    st.setNgaytao(rs.getDate(7));
                     listS.add(st);
                 }
             } finally {
@@ -72,36 +78,31 @@ public class KhoDAO {
         }
         return listS;
     }
-    public List<Sach> SelectBySQLS(String sql, Object... args) {
-        List<Sach> listS = new ArrayList<>();
-        try {
-            ResultSet rs = null;
+        public List<Date> selectDistinctDate() {
+            String sql = "SELECT DISTINCT ngayton FROM khosach ORDER BY ngayton DESC";
+            List<Date> list = new ArrayList<>();
             try {
-                rs = utils.JDBCHelper.query(sql, args);
-                while (rs.next()) {
-                    Sach st = new Sach();
-                    st.setMaSach(rs.getString(1));
-                    st.setTenSach(rs.getString(2));
-                    st.setNamXB(rs.getInt(3));
-                    st.setNhaXB(rs.getString(4));
-                    st.setGia(rs.getInt(5));
-                    st.setTentacgia(rs.getString(6));
-                    st.setTheloai(rs.getString(7));
-                    st.setGhiChu(rs.getString(8));
-                    st.setHinh(rs.getString(9));
-                    listS.add(st);
+                ResultSet rs = null;
+                try {
+                    rs = utils.JDBCHelper.query(sql);
+                    while (rs.next()) {
+                        list.add(rs.getDate("ngayton"));
+                    }
+                } finally {
+                    if (rs != null) {
+                        rs.getStatement().getConnection().close();
+                    }
                 }
-            } finally {
-                rs.getStatement().getConnection().close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                throw new RuntimeException(ex);
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            return list;
         }
-        return listS;
-    }
+
 
     public List<Kho> SelectAll() {
-        String sql = "SELECT * FROM sach";
+        String sql = "SELECT * FROM khosach";
         return SelectBySQL(sql);
     }
     
@@ -109,8 +110,31 @@ public class KhoDAO {
         String sql = "SELECT * FROM sach WHERE tensach LIKE ?";
         return SelectBySQL(sql, "%" + keyword + "%");
     }
-    public List<Sach> selectBySach(String masach) {
+    public List<Kho> selectBySach(String masach) {
         String sql = "SELECT * FROM khosach WHERE MAsach = ?";
-        return SelectBySQLS(sql, masach);
+        return SelectBySQL(sql, masach);
+    }
+    
+    private List<Object[]> getListOfArray(String sql, String[] cols, Object...args){
+        try {
+            List<Object[]> list=new ArrayList<>();
+            ResultSet rs = JDBCHelper.query(sql, args);
+            while(rs.next()){
+                Object[] vals = new Object[cols.length];
+                for(int i=0; i<cols.length; i++){
+                    vals[i] = rs.getObject(cols[i]);
+                }
+                list.add(vals);
+            }
+            rs.getStatement().getConnection().close();
+            return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public List<Object[]> getHangTon(Date ngayton){
+        String sql = "{CALL sp_HangTon (?)}";
+        String[] cols = {"Mã sách","Tên sách","Số lượng"};
+        return this.getListOfArray(sql, cols, ngayton);
     }
 }

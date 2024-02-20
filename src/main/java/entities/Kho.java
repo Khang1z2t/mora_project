@@ -5,6 +5,8 @@
  */
 package entities;
 
+import java.util.Date;
+
 /**
  *
  * @author NGUYEN THI NGUYET VY
@@ -14,18 +16,19 @@ public class Kho {
     private String maSach;
     private String tenSach;
     private String maNV;
-    private String ngaytao;
+    private String GhiChu;
+    private Date ngaytao = new Date();
     private int soluong;
 
     public Kho() {
     }
 
-    public Kho(String makho, String maSach, String tenSach, String maNV, String ngaytao, int soluong) {
+    public Kho(String makho, String maSach, String tenSach, String maNV, String GhiChu, int soluong) {
         this.makho = makho;
         this.maSach = maSach;
         this.tenSach = tenSach;
         this.maNV = maNV;
-        this.ngaytao = ngaytao;
+        this.GhiChu = GhiChu;
         this.soluong = soluong;
     }
 
@@ -61,11 +64,19 @@ public class Kho {
         this.maNV = maNV;
     }
 
-    public String getNgaytao() {
+    public String getGhiChu() {
+        return GhiChu;
+    }
+
+    public void setGhiChu(String GhiChu) {
+        this.GhiChu = GhiChu;
+    }
+
+    public Date getNgaytao() {
         return ngaytao;
     }
 
-    public void setNgaytao(String ngaytao) {
+    public void setNgaytao(Date ngaytao) {
         this.ngaytao = ngaytao;
     }
 

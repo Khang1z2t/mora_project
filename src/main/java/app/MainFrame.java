@@ -548,7 +548,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnKhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKhoActionPerformed
         // TODO add your handling code here:
-        new QuanLyKhoJDialog(this, true).setVisible(true);
+        new TonKhoJDialog(this, true).setVisible(true);
     }//GEN-LAST:event_btnKhoActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed

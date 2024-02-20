@@ -37,8 +37,11 @@ CREATE TABLE Sach (
 	ghichu nvarchar(250) null,
 	hinh varchar(50) null,
 	matheloai nvarchar(20) null,
-	matacgia nvarchar(20)
+	matacgia nvarchar(20) null,
+	soluong int null,
+	ngayton date default getdate()
 );
+
 -- Tạo bảng đọc giả
 CREATE TABLE DocGia (
     MaDocGia nvarchar(20) PRIMARY KEY,
@@ -66,13 +69,15 @@ CREATE TABLE ChiTietHoaDon (
 
 -- Tạo bảng kho sách
 CREATE TABLE KhoSach (
-	makho int identity(1,1) primary key,
+	makho nvarchar(100) primary key,
 	maSach nvarchar(20) null,
 	tensach nvarchar(100) null,
 	soluong int null,
+	ghichu nvarchar(100),
 	maNV varchar(20) null,
-	ngayton varchar(50) null
+	ngayton date null
 );
+
 create table qltacgia(
 	matacgia nvarchar(20) primary key,
 	tentacgia nvarchar(100) null
@@ -158,3 +163,37 @@ INSERT INTO qltacgia (matacgia, tentacgia) VALUES
 ('TG18', N'Maya Angelou'),
 ('TG19', N'Hồ Chí Minh'),
 ('TG20', N'Michelangelo');
+
+ALTER TABLE NhanVien
+ADD IsSuperAdmin BIT DEFAULT 0 null;
+UPDATE NhanVien
+SET IsSuperAdmin = 1
+
+WHERE VAITRO = 2;
+
+/****CREATE PROCEDURE sp_HangTon
+    @SoLuong INT,
+    @NgayTon DATE
+AS
+BEGIN
+    -- Your logic to save the inventory goes here
+    -- For example, you might want to insert the data into a table named HangTon
+    INSERT INTO HangTon (SoLuong, NgayTon)
+    VALUES (@SoLuong, @NgayTon)
+END****/
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[sp_HangTon](@ngayton date)
+AS BEGIN
+	SELECT
+		sach.masach AS MaSach,
+		sach.tensach AS TenSach,
+		COUNT(sach.masach) AS SoLuong
+	FROM sach
+		LEFT JOIN HangTon ht ON sach.masach = ht.masach AND ht.NgayTon = @ngayton
+	GROUP BY sach.masach, sach.tensach
+END
+GO
