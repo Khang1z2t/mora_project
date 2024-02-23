@@ -7,18 +7,21 @@ package app;
 
 import dao.KhoDAO;
 import dao.SachDAO;
+import dao.ThongKeDAO;
 import entities.Kho;
 import entities.Sach;
 import java.awt.Color;
 import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import utils.XDate;
 
 /**
  *
@@ -37,54 +40,90 @@ public class TonKhoJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        fillToCBXDates();
+        initCBXDates();
         initTable();
         initComboBox();
+        DBFillToList();
     }
-private void fillToCBXDates() {
-    DefaultComboBoxModel model = (DefaultComboBoxModel) cbxDate.getModel();
-    model.removeAllElements();
-    // Lấy các ngày khác từ CSDL và định dạng
-    List<Date> lst = new SachDAO().selectDistinctDate();
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-    for (Date date : lst) {
-        String formattedDate = dateFormat.format(date);
-        model.addElement(formattedDate);
-        String yesterday = dateFormat.format(date.getTime()-1);
-        model.addElement(yesterday);
+    private void DBFillToList() {
+        SachDAO cdd = new SachDAO();
+        temp = (ArrayList<Sach>) cdd.SelectAll();
+    }
+private void initCBXDates() {
+    cbxModel = new DefaultComboBoxModel();
+    // Get today's date
+    Date today = new Date();
+    // Add today's date to the model
+    cbxModel.addElement(today);
+    // Calculate yesterday's date
+    Date yesterday = XDate.addDays(today, -1);
+    // Add yesterday's date to the model
+    cbxModel.addElement(yesterday);
+    // Retrieve distinct dates from SQL and add them to the model
+    List<Date> listDate = new SachDAO().selectDate();
+    if (listDate != null && !listDate.isEmpty()) {
+        for (Date date : listDate) {
+            // Avoid adding duplicates (today and yesterday already added)
+            if (!date.equals(today) && !date.equals(yesterday)) {
+                cbxModel.addElement(date);
+            }
+        }
     }
 
-    cbxDate.setSelectedIndex(0);
+    cbxDate.setModel(cbxModel);
 }
+
+
 //Phần lưu hàng tồn
-    private void saveHangTon() {
-        try {
-            // Gọi stored procedure để lưu dữ liệu từ danh sách chưa lưu
-            List<Object[]> resultList = new SachDAO().saveHangTon(unsavedData);
-            unsavedData.clear(); // Xóa dữ liệu đã lưu khỏi danh sách chưa lưu
-            utils.DialogHelper.alert(this, "Lưu kiểm kê thành công!");
-        } catch (Exception e) {
-            utils.DialogHelper.alert(this, "Đã xảy ra lỗi khi lưu kiểm kê!");
-            e.printStackTrace();
-        }
-    }
+//    private void saveHangTon() {
+//        try {
+//            // Gọi stored procedure để lưu dữ liệu từ danh sách chưa lưu
+//            List<Object[]> resultList = new SachDAO().saveHangTon(unsavedData);
+//            unsavedData.clear(); // Xóa dữ liệu đã lưu khỏi danh sách chưa lưu
+//            utils.DialogHelper.alert(this, "Lưu kiểm kê thành công!");
+//        } catch (Exception e) {
+//            utils.DialogHelper.alert(this, "Đã xảy ra lỗi khi lưu kiểm kê!");
+//            e.printStackTrace();
+//        }
+//    }
     // Phương thức fill dữ liệu từ stored procedure vào bảng
-    private void fillTableDate() {
-        DefaultTableModel tblModel = (DefaultTableModel) tblTon.getModel();
-        tblModel.setRowCount(0);
-        // Gọi stored procedure để lấy dữ liệu
-        try{
-            Date selectedDate = (Date) cbxDate.getSelectedItem();
-            List<Object[]> lst = new SachDAO().getHangTon(selectedDate);
-            for (Object[] objects : lst) {
-                tblModel.addRow(objects);
-            }
-        }catch(Exception e){
-            
-        }
+private void fillTableDate() {
+    // Clear existing rows from the table
+    tblModel.setRowCount(0);
+
+    // Get the selected date from cbxDate
+    Date selectedDate = (Date) cbxDate.getSelectedItem();
+
+    // Check if a date is selected
+    if (selectedDate == null) {
+        // Handle the case where no date is selected
+        return;
     }
+    SachDAO sachDAO = new SachDAO();
+    // Call the stored procedure to get data for the selected date
+    List<Object[]> lst = sachDAO.getHangTon(selectedDate);
+
+    // Iterate through the result and add rows to tblModel
+    for (Object[] objects : lst) {
+        tblModel.addRow(new Object[]{
+            // Adjust the indices based on the structure of lst
+            objects[0],  // Assuming it's "masach"
+            objects[1],  // Assuming it's "tensach"
+            objects[2],  // Assuming it's "soluong"
+            selectedDate // You might want to display the selected date
+        });
+    }
+}
+
+    private void chooseCBX(){
+      Sach sach =  (Sach) cbxModel.getSelectedItem();
+      Date ngayton = sach.getNgayton();
+      new SachDAO().getHangTon(ngayton);
+      fillTableDate();
+}
     void showDetail(int index) {
         Sach sach = (Sach) cbxSach.getSelectedItem();
+        cbxDate.setSelectedItem(sach.getNgayton());
         txtSoLuong.setText(String.valueOf(sach.getSoluong()));
         txtSoLuong.requestFocus();
     }
@@ -125,6 +164,7 @@ private void fillToCBXDates() {
             "Mã sách",
             "Tên sách",
             "Số lượng",
+            "Ngày tồn",
         });
         tblTon.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         tblTon.getTableHeader().setOpaque(false);
@@ -151,6 +191,7 @@ public void addHang() {
             sach.setSoluong(soLuong);
             // Thêm hàng vào bảng
             temp.add(sach);
+            new SachDAO().update(sach);
             fillToTableTon();
             // Xóa dữ liệu trên các trường nhập liệu
             txtSoLuong.setText("");
@@ -162,17 +203,17 @@ public void addHang() {
 public void removeHang() {
         DefaultTableModel model = (DefaultTableModel) tblTon.getModel();
         int selectedRow = tblTon.getSelectedRow();
-
         if (selectedRow != -1) {
             if (utils.DialogHelper.confirm(this, "Bạn muốn xóa mục hàng đã được chọn?")) {
-
+                for (int i = 0; i < model.getRowCount(); i++) {
+                    String masach = (String) tblTon.getValueAt(i,1);
+                    Sach sach = new SachDAO().selectById(masach);
+                    sach.setSoluong(0);
+                    new SachDAO().update(sach);
+//                    model.setValueAt(i + 1, i, 0);
+                }
                 temp.remove(selectedRow);
                 fillToTableTon();
-
-                // Cập nhật lại số STT
-                for (int i = 0; i < model.getRowCount(); i++) {
-                    model.setValueAt(i + 1, i, 0);
-                }
             }
         } else {
             utils.DialogHelper.alert(this, "Vui lòng chọn một hàng để xóa.");
@@ -182,33 +223,19 @@ public void removeHang() {
     public void fillToTableTon() {
         DefaultTableModel model = (DefaultTableModel) tblTon.getModel();
         model.setRowCount(0);
-        try {
-               for(int i=0;i<temp.size();i++){
-                   Object[] row = {
-                       i+1,
-                       temp.get(i).getMaSach(),
-                       temp.get(i).getTenSach(),
-                       temp.get(i).getSoluong(),
-                   };
-                   model.addRow(row);
-               }
-//            Sach sach = (Sach) cbxSach.getSelectedItem();
-//            if (sach != null) {
-//                List<Sach> list = (List<Sach>) new SachDAO().selectById(sach.getMaSach());
-//                for (int i = 0; i < list.size(); i++) {
-//                    Object[] row = {
-//                        i + 1,
-//                        sach.getMaSach(), 
-//                        sach.getTenSach(),
-//                        sach.getSoluong(), 
-//                        sach.getGhiChu(), 
-//                    };
-//                    model.addRow(row);
-//                }
-//            }
-        } catch (Exception e) {
+            try {
+                   for(int i=0;i<temp.size();i++){
+                       Object[] row = {
+                           i+1,
+                           temp.get(i).getMaSach(),
+                           temp.get(i).getTenSach(),
+                           temp.get(i).getSoluong(),
+                           XDate.toString(temp.get(i).getNgayton(),"dd-MM-yyyy"),
+                       };
+                       model.addRow(row);
+                   }
+            } catch (Exception e) {
         }
-
     }
     //Còn lỗi ở update So luong - > kh cap nhat duoc,co the fillToTable bi loi
     public void updateSoLuong() {
@@ -411,7 +438,7 @@ public void removeHang() {
 
     private void cbxDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDateActionPerformed
         // TODO add your handling code here:
-            fillTableDate();
+         chooseCBX();
     }//GEN-LAST:event_cbxDateActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
@@ -430,27 +457,27 @@ public void removeHang() {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        try {
-            // Lấy thông tin từ ComboBox và TextField
-            Sach sach = (Sach) cbxSach.getSelectedItem();
-            int soluong = sach.getSoluong();
-
-            // Lấy ngày hiện tại
-            Date currentDate = new Date();
-
-            sach.setSoluong(soluong);
-            sach.setNgayton(currentDate);
-
-            // Thêm vào danh sách chưa lưu
-            temp.add(sach);
-            new SachDAO().insert(sach);
-            // Xóa dữ liệu trên các trường nhập liệu
-            txtSoLuong.setText("");
-
-            utils.DialogHelper.alert(this, "Thêm vào danh sách chưa lưu thành công!");
-        } catch (NumberFormatException e) {
-            utils.DialogHelper.alert(this, "Số lượng không hợp lệ!");
-        }
+//        try {
+//            // Lấy thông tin từ ComboBox và TextField
+//            Sach sach = (Sach) cbxSach.getSelectedItem();
+//            int soluong = sach.getSoluong();
+//
+//            // Lấy ngày hiện tại
+//            Date currentDate = new Date();
+//
+//            sach.setSoluong(soluong);
+//            sach.setNgayton(currentDate);
+//
+//            // Thêm vào danh sách chưa lưu
+//            temp.add(sach);
+//            new SachDAO().insert(sach);
+//            // Xóa dữ liệu trên các trường nhập liệu
+//            txtSoLuong.setText("");
+//
+//            utils.DialogHelper.alert(this, "Thêm vào danh sách chưa lưu thành công!");
+//        } catch (NumberFormatException e) {
+//            utils.DialogHelper.alert(this, "Số lượng không hợp lệ!");
+//        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void tblTonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTonMouseClicked

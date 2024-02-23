@@ -39,9 +39,8 @@ CREATE TABLE Sach (
 	matheloai nvarchar(20) null,
 	matacgia nvarchar(20) null,
 	soluong int null,
-	ngayton date default getdate()
+	ngayton date default getdate() not null
 );
-
 -- Tạo bảng đọc giả
 CREATE TABLE DocGia (
     MaDocGia nvarchar(20) PRIMARY KEY,
@@ -86,6 +85,13 @@ create table qlTheLoai(
 	matheloai nvarchar(20) primary key,
 	tentheloai nvarchar(100) null
 );
+/*
+drop table khosach
+drop table ChiTietHoaDon
+drop table HoaDon
+drop table DocGia
+drop table sach*/
+
 ALTER TABLE NGUOIDUNG
 ADD CONSTRAINT FK_NGUOIDUNG_NHANVIEN FOREIGN KEY (MANV) REFERENCES NHANVIEN(MANV)
 -- Phai co Tac gia va the loai truoc moi co thong tin du lieu Tac gia va the loai
@@ -115,9 +121,7 @@ insert into NHANVIEN(MANV,MATKHAU,HOTEN,EMAIL,VAITRO) values
 INSERT INTO NGUOIDUNG VALUES 
 ('ADMIN', N'Nguyen Dinh Tuan', 0, '08-16-2004', '0783955138', 'tuanndps36835@fpt.edu.vn', 'ADMIN', GETDATE())
 
-
-insert into Sach(masach,tensach,namxb,nhaxb,gia,tentacgia,theloai,ghichu) values
-('S1',N'Lão Hạc','2004','Kim Dong','35000',N'Nam Cao','Văn học','Còn trong kho')
+select * from sach
 
 -- Thêm dữ liệu vào bảng qlTheLoai
 INSERT INTO qlTheLoai (matheloai, tentheloai) VALUES
@@ -191,9 +195,14 @@ AS BEGIN
 	SELECT
 		sach.masach AS MaSach,
 		sach.tensach AS TenSach,
-		COUNT(sach.masach) AS SoLuong
+		sach.soluong AS SoLuong
 	FROM sach
-		LEFT JOIN HangTon ht ON sach.masach = ht.masach AND ht.NgayTon = @ngayton
-	GROUP BY sach.masach, sach.tensach
+	where sach.ngayton = @ngayton
 END
 GO
+select masach,tensach,soluong from sach where ngayton = '2024-02-21'
+
+DECLARE @NgayTon DATE = '2024-02-22';
+
+EXEC sp_HangTon @ngayton = @NgayTon;
+

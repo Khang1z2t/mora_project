@@ -14,7 +14,9 @@ import entities.TheLoai;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -44,6 +46,7 @@ public class QuanLySachJDialog extends javax.swing.JDialog {
         setSelected(0);
         initComboBoxTG();
         initComboBoxTL();
+        
     }
     private void initTable() {
         tblModel = new DefaultTableModel();
@@ -93,9 +96,10 @@ public class QuanLySachJDialog extends javax.swing.JDialog {
         txtGiasach.setText(String.valueOf(sa.getGia()));
         TacGia selectedTacGia = (TacGia) cboTacgia.getSelectedItem();
         TheLoai selectedTheLoai = (TheLoai) cboTheLoai.getSelectedItem();
-
-        cboTacgia.setSelectedItem(selectedTacGia);
-        cboTheLoai.setSelectedItem(selectedTheLoai);
+        selectedTacGia.setTentg(sa.getTentacgia());
+        selectedTheLoai.setTenTheLoai(sa.getTheloai());
+        cboTacgia.setSelectedItem(selectedTacGia.getTentg());
+        cboTheLoai.setSelectedItem(selectedTheLoai.getTenTheLoai());
         txtGhiChu.setText(sa.getGhiChu());
         if (!sa.getHinh().equals("")) {
             lblHinh.setIcon(XImage.read(sa.getHinh(), lblHinh.getWidth(), lblHinh.getHeight()));
@@ -180,6 +184,8 @@ public class QuanLySachJDialog extends javax.swing.JDialog {
         String tentg = String.valueOf(cboTacgia.getSelectedItem());
         String theloai = String.valueOf(cboTheLoai.getSelectedItem());
         String ghichu = txtGhiChu.getText();
+        Date ngayton = new Date();
+   
         //valid
         if(ma.equalsIgnoreCase("") || ten.equalsIgnoreCase("") || namxb == 0 || gia.equals(0) || ghichu.equalsIgnoreCase("") || tentg.equals("") || theloai.equals("")){
             utils.DialogHelper.alert(this, "Vui lòng nhập đủ thông tin!");
@@ -193,6 +199,7 @@ public class QuanLySachJDialog extends javax.swing.JDialog {
         sa.setTentacgia(tentg);
         sa.setTheloai(theloai);
         sa.setGhiChu(ghichu);
+        sa.setNgayton(ngayton);
         sa.setHinh(lblHinh.getToolTipText());
         return sa;
     }
@@ -690,9 +697,14 @@ addSach();        // TODO add your handling code here:
             txtGhiChu.setText(s.getGhiChu());
         TacGia selectedTacGia = (TacGia) cboTacgia.getSelectedItem();
         TheLoai selectedTheLoai = (TheLoai) cboTheLoai.getSelectedItem();
-
-        cboTacgia.setSelectedItem(selectedTacGia);
-        cboTheLoai.setSelectedItem(selectedTheLoai);
+        selectedTacGia.setTentg(s.getTentacgia());
+        selectedTheLoai.setTenTheLoai(s.getTheloai());
+        cboTacgia.setSelectedItem(selectedTacGia.getTentg());
+        cboTheLoai.setSelectedItem(selectedTheLoai.getTenTheLoai());
+        if (!s.getHinh().equals("")) {
+            lblHinh.setIcon(XImage.read(s.getHinh(), lblHinh.getWidth(), lblHinh.getHeight()));
+            lblHinh.setToolTipText(s.getHinh());
+        }
             tabSach.setSelectedIndex(0);
         } catch (Exception e) {
         }

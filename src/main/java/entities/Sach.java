@@ -24,7 +24,7 @@ public class Sach {
     private String maTheLoai;
     private String maTacGia;
     private int soluong;
-    private Date ngayton;
+    private Date ngayton = new Date();
 
     public Sach() {
     }

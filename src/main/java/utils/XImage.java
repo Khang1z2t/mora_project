@@ -17,11 +17,11 @@ public class XImage {
     }
     
 //    /**
-//     * Sao chép file logo chuyên đề vào thư mục logo
+//     * Sao chép file logo sách vào thư mục logo
 //     * @param src là đối tượng file ảnh
 //     */   
     public static void save(File src){
-        File dst = new File("icons", src.getName());
+        File dst = new File("bia", src.getName());
         if(!dst.getParentFile().exists()){
             dst.getParentFile().mkdirs();
         }
@@ -35,12 +35,12 @@ public class XImage {
         }
     }
 //    /**
-//     * Đọc hình ảnh logo chuyên đề
+//     * Đọc hình ảnh logo bìa sách
 //     * @param fileName  là tên file logo
 //     * @return ảnh đọc được
 //     */   
     public static ImageIcon read(String fileName, int width, int heigt){
-        File path = new File("icons", fileName);
+        File path = new File("bia", fileName);
         return new ImageIcon(new ImageIcon(path.getAbsolutePath()).getImage().getScaledInstance(width, heigt, Image.SCALE_SMOOTH));
     }
 }

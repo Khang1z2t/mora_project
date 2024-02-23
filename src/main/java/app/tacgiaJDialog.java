@@ -139,7 +139,7 @@ public class tacgiaJDialog extends javax.swing.JDialog {
         if (tl != null) {
             for (TacGia t : listTG) {
                 if (tl.getMatg().equals(t.getMatg())) {
-                    utils.DialogHelper.alert(this, "Thể loại đã tồn tại!");
+                    utils.DialogHelper.alert(this, "Tác giả đã tồn tại!");
                     return;
                 }
             }
@@ -204,10 +204,10 @@ public class tacgiaJDialog extends javax.swing.JDialog {
         jLabel2.setText("QUẢN LÝ THÔNG TIN - Tác giả");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("MÃ THỂ LOẠI");
+        jLabel1.setText("MÃ TÁC GIẢ");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("THỂ LOẠI");
+        jLabel3.setText("TÊN TÁC GIẢ");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -415,7 +415,7 @@ public class tacgiaJDialog extends javax.swing.JDialog {
         try {
             for (TacGia tl : listTG) {
                 if (txtMaTheLoai.getText().equalsIgnoreCase(tl.getMatg())) {
-                    boolean choose = utils.DialogHelper.confirm(this, "Bạn có chắc chắn muốn xóa thể loại '" + tl.getTentg()+ "' không?");
+                    boolean choose = utils.DialogHelper.confirm(this, "Bạn có chắc chắn muốn xóa tác giả '" + tl.getTentg()+ "' không?");
                     if (choose) {
                         delete(tl);
                         setSelected(0);

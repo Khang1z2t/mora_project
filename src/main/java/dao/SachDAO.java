@@ -85,7 +85,7 @@ public class SachDAO {
                     st.setGhiChu(rs.getString(8));
                     st.setHinh(rs.getString(9));
                     st.setMaTheLoai(rs.getString(10));
-                    st.setMaTheLoai(rs.getString(11));
+                    st.setMaTacGia(rs.getString(11));
                     st.setSoluong(rs.getInt(12));
                     st.setNgayton(rs.getDate(13));
                     listS.add(st);
@@ -98,12 +98,18 @@ public class SachDAO {
         }
         return listS;
     }
-
+    public void updateNgayton(Sach model, String masach){
+        String sql="UPDATE ssach SET ngayton = ? WHERE masach = ?";
+        utils.JDBCHelper.update(sql, 
+                model.getNgayton(),
+                masach
+        );
+    }
     public List<Sach> SelectAll() {
         String sql = "SELECT * FROM sach";
         return SelectBySQL(sql);
     }
-           public List<Date> selectDistinctDate() {
+           public List<Date> selectDate() {
             String sql = "SELECT DISTINCT ngayton FROM sach ORDER BY ngayton DESC";
             List<Date> list = new ArrayList<>();
             try {
@@ -111,7 +117,7 @@ public class SachDAO {
                 try {
                     rs = utils.JDBCHelper.query(sql);
                     while (rs.next()) {
-                        list.add(rs.getDate("ngayton"));
+                        list.add(rs.getDate(1));
                     }
                 } finally {
                     if (rs != null) {
@@ -180,5 +186,8 @@ public List<Object[]> saveHangTon(List<Sach> sachList) {
             String[] cols = {"masach", "tensach", "soluong"};
             return this.getListOfArray(sql, cols, ngayton);
         }
-
+        public List<Sach> getHang(Date ngayton){
+            String sql = "select masach,tensach,soluong from sach where ngayton = ?";
+            return SelectBySQL(sql, ngayton);
+        }
 }

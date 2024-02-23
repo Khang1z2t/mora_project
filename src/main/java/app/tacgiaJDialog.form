@@ -138,7 +138,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="M&#xc3; TH&#x1ec2; LO&#x1ea0;I"/>
+                <Property name="text" type="java.lang.String" value="M&#xc3; T&#xc1;C GI&#x1ea2;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtMaTheLoai">
@@ -148,7 +148,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="TH&#x1ec2; LO&#x1ea0;I"/>
+                <Property name="text" type="java.lang.String" value="T&#xca;N T&#xc1;C GI&#x1ea2;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtTenTheLoai">

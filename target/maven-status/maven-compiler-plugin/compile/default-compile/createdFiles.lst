@@ -5,6 +5,7 @@ app\QuanLySachJDialog$2.class
 app\theloaiJDialog$11$1.class
 app\HoaDonJDialog$1.class
 app\NguoiDungJDialog$2.class
+app\TonHangJDialog$2.class
 app\MainFrame$22.class
 app\theloaiJDialog$7.class
 app\DangNhapJDialog$3.class
@@ -21,6 +22,7 @@ app\QuenMatKhauJDialog$2.class
 entities\NhanVien.class
 app\DangNhapJDialog$5$1.class
 app\TonKhoJDialog$1.class
+app\TonHangJDialog$3.class
 app\MainFrame$21.class
 app\NguoiDungJDialog$10.class
 app\TonKhoJDialog$8.class
@@ -39,6 +41,8 @@ dao\TheLoaiDAO.class
 app\TonKhoJDialog$8$1.class
 app\QuanLySachJDialog$6.class
 app\QuenMatKhauJDialog$4.class
+app\TonHangJDialog$1.class
+app\TonHangJDialog.class
 app\MainFrame$23.class
 app\theloaiJDialog$6.class
 app\TonKhoJDialog$3.class
@@ -112,8 +116,10 @@ app\QuanLySachJDialog$5.class
 app\MainFrame$4.class
 app\DangNhapJDialog$1.class
 app\NhanVienJDialog$8.class
+app\TonHangJDialog$4.class
 app\tacgiaJDialog$4.class
 entities\NguoiDung.class
+dao\ThongKeDAO.class
 app\QuanLyKhoJDialog$2.class
 app\MainFrame$20.class
 app\NhanVienJDialog$1.class
@@ -150,6 +156,7 @@ app\QuanLySachJDialog$3.class
 app\TonKhoJDialog.class
 app\ThongKeJDialog$1$1.class
 app\NhanVienJDialog$4.class
+app\TonHangJDialog$4$1.class
 app\MainFrame$1.class
 app\NguoiDungJDialog$11$1.class
 app\DoiMatKhauJDialog$2.class
