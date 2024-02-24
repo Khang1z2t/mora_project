@@ -34,7 +34,7 @@
                   <KeyStroke key="Ctrl+R"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\JavaApplication37\src\AppFrame\icons\change-password-27-16.png"/>
+                  <Image iconType="3" name="/icons/change-password.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i m&#x1ead;t kh&#x1ea9;u"/>
               </Properties>
@@ -44,6 +44,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMLogin">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icons/login.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng nh&#x1ead;p"/>
               </Properties>
               <Events>
@@ -88,9 +91,6 @@
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+S"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\NMKTPM\Project\JavaApplication37\src\AppFrame\icons\book.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="S&#xe1;ch"/>
               </Properties>
@@ -400,7 +400,7 @@
                           <Color blue="cb" green="88" red="20" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="E:\NMKTPM\Project\JavaApplication37\src\AppFrame\icons\settings-84-16.png"/>
+                          <Image iconType="3" name="/icons/setting.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="C&#xe0;i &#x111;&#x1eb7;t"/>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -430,7 +430,7 @@
                       <Color blue="cb" green="88" red="20" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="E:\NMKTPM\Project\JavaApplication37\src\AppFrame\icons\profile.png"/>
+                      <Image iconType="3" name="/icons/profile.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="T&#xe0;i kho&#x1ea3;n"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>

@@ -150,7 +150,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnSettings.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSettings.setForeground(new java.awt.Color(32, 136, 203));
-        btnSettings.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\JavaApplication37\\src\\AppFrame\\icons\\settings-84-16.png")); // NOI18N
+        btnSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/setting.png"))); // NOI18N
         btnSettings.setText("Cài đặt");
         btnSettings.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSettings.setMaximumSize(new java.awt.Dimension(87, 52));
@@ -186,7 +186,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnAccount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAccount.setForeground(new java.awt.Color(32, 136, 203));
-        btnAccount.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\JavaApplication37\\src\\AppFrame\\icons\\profile.png")); // NOI18N
+        btnAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/profile.png"))); // NOI18N
         btnAccount.setText("Tài khoản");
         btnAccount.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAccount.setMaximumSize(new java.awt.Dimension(87, 52));
@@ -324,7 +324,7 @@ public class MainFrame extends javax.swing.JFrame {
         System.setText("Hệ thống");
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\JavaApplication37\\src\\AppFrame\\icons\\change-password-27-16.png")); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/change-password.png"))); // NOI18N
         jMenuItem2.setText("Đổi mật khẩu");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,6 +333,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         System.add(jMenuItem2);
 
+        jMLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/login.png"))); // NOI18N
         jMLogin.setText("Đăng nhập");
         jMLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,7 +367,6 @@ public class MainFrame extends javax.swing.JFrame {
         Manage.setText("Quản Lý");
 
         jMqlsach.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMqlsach.setIcon(new javax.swing.ImageIcon("E:\\NMKTPM\\Project\\JavaApplication37\\src\\AppFrame\\icons\\book.png")); // NOI18N
         jMqlsach.setText("Sách");
         jMqlsach.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
