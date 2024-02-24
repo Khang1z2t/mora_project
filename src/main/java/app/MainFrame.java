@@ -18,12 +18,14 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
+import utils.XImage;
 
 /**
  *
  * @author NGUYEN THI NGUYET VY
  */
 public class MainFrame extends javax.swing.JFrame {
+    public static boolean isHomeOpened = true;
     DefaultTableModel model;
     
     /**
@@ -32,6 +34,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame(int index) {
         initComponents();
         setLocationRelativeTo(null);
+        setIconImage(XImage.getAppIcon());
         init(index);
         new Timer(1000, new ActionListener() {
             SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss a");
@@ -61,6 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
                 Tacgia.setEnabled(false);
                 nhaxb.setEnabled(false);
             }
+            isHomeOpened = false;
         } catch (Exception e) {
         }
     }
@@ -546,6 +550,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jMLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMLogoutActionPerformed
         utils.DialogHelper.confirm(this, "Đang thực hiện đăng xuất...");  
         utils.Auth.clear();
+        isHomeOpened = false;
         dispose();
         new DangNhapJDialog(this, true).setVisible(true);
     }//GEN-LAST:event_jMLogoutActionPerformed

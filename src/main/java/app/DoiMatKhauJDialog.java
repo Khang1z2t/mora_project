@@ -9,6 +9,7 @@ import dao.NhanVienDAO;
 import entities.NhanVien;
 import java.util.ArrayList;
 import utils.DialogHelper;
+import utils.XImage;
 
 /**
  *
@@ -24,6 +25,7 @@ public class DoiMatKhauJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setIconImage(XImage.getAppIcon());
 //        initData();
 //checkAuth();
     }

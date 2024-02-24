@@ -12,7 +12,7 @@ public class XImage {
     // Ảnh biểu tượng của ứng dụng, xuất hiện trên mọi cửa sổ
  
     public static Image getAppIcon(){
-        String file = "/icon/education.png";
+        String file = "/icon/mora.png";
         return new ImageIcon(XImage.class.getResource(file)).getImage();
     }
     

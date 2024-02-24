@@ -40,6 +40,7 @@ public class SettingJDialog extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cài đặt");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Nhóm 3 :");
@@ -97,8 +98,6 @@ public class SettingJDialog extends javax.swing.JDialog {
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18))
         );
-
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\NGUYEN THI NGUYET VY\\Downloads\\kleeW.gif")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

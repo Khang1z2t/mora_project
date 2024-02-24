@@ -29,6 +29,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import utils.DialogHelper;
 import utils.XFile;
+import utils.XImage;
 
 /**
  *
@@ -46,6 +47,7 @@ public class DangNhapJDialog extends javax.swing.JDialog {
         initComponents();
         remember();
         setLocationRelativeTo(null);
+        setIconImage(XImage.getAppIcon());
         //Chay icon ,set size de hon voi cac icon oversize
         initIcon();
         remember();
@@ -313,7 +315,10 @@ public class DangNhapJDialog extends javax.swing.JDialog {
                     }
                 }
                 utils.Auth.user = nv;
-                new MainFrame(1).setVisible(true);
+                if (!MainFrame.isHomeOpened) {
+                    new MainFrame(1).setVisible(true);
+                    MainFrame.isHomeOpened = true;
+                }
                 this.setVisible(false);
             }
         }
