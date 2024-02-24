@@ -206,8 +206,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnKho.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnKho.setForeground(new java.awt.Color(32, 136, 203));
-        btnKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/storage.png"))); // NOI18N
-        btnKho.setText("QUẢN LÝ KHO");
+        btnKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/storage.png"))); // NOI18N
+        btnKho.setText("Quản lý kho");
         btnKho.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnKho.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnKho.addActionListener(new java.awt.event.ActionListener() {
@@ -216,10 +216,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnInfo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnInfo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnInfo.setForeground(new java.awt.Color(32, 136, 203));
-        btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/information.png"))); // NOI18N
+        btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/information.png"))); // NOI18N
         btnInfo.setText("Thông tin");
+        btnInfo.setMaximumSize(new java.awt.Dimension(100, 27));
+        btnInfo.setMinimumSize(new java.awt.Dimension(100, 27));
+        btnInfo.setPreferredSize(new java.awt.Dimension(104, 23));
         btnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfoActionPerformed(evt);
@@ -237,8 +240,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnKho)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnInfo)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addComponent(btnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,6 +370,7 @@ public class MainFrame extends javax.swing.JFrame {
         Manage.setText("Quản Lý");
 
         jMqlsach.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMqlsach.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/open-book.png"))); // NOI18N
         jMqlsach.setText("Sách");
         jMqlsach.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -380,7 +384,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Manage.add(jMqlsach);
 
-        Tacgia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/writer.png"))); // NOI18N
+        Tacgia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/writer.png"))); // NOI18N
         Tacgia.setText("Tác giả");
         Tacgia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -389,7 +393,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Manage.add(Tacgia);
 
-        theloai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/type.png"))); // NOI18N
+        theloai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/type.png"))); // NOI18N
         theloai.setText("Thể loại");
         theloai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -408,7 +412,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Manage.add(nhaxb);
 
-        jMill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bill.png"))); // NOI18N
+        jMill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/bill.png"))); // NOI18N
         jMill.setText("Hóa đơn");
         jMill.setEnabled(false);
         jMill.addActionListener(new java.awt.event.ActionListener() {
@@ -420,7 +424,7 @@ public class MainFrame extends javax.swing.JFrame {
         Manage.add(jSeparator2);
 
         jMqlnv.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMqlnv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
+        jMqlnv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
         jMqlnv.setText("Nhân viên");
         jMqlnv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -429,7 +433,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         Manage.add(jMqlnv);
 
-        jMNguoiDung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/staff.png"))); // NOI18N
+        jMNguoiDung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/staff.png"))); // NOI18N
         jMNguoiDung.setText("Thông tin NV");
         jMNguoiDung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

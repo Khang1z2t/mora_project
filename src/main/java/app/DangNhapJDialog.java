@@ -159,13 +159,13 @@ public class DangNhapJDialog extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Hoặc đăng nhập với");
 
-        lblFB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon1/facebook.png"))); // NOI18N
+        lblFB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/facebook.png"))); // NOI18N
         lblFB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        lblGmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon1/gmail.png"))); // NOI18N
+        lblGmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/google.png"))); // NOI18N
         lblGmail.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        lblQR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon1/qr-code.png"))); // NOI18N
+        lblQR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/qr-code.png"))); // NOI18N
         lblQR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblQR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -241,7 +241,7 @@ public class DangNhapJDialog extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon1/beeLogin.gif"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/beeLogin.gif"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
